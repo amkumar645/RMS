@@ -1,0 +1,25 @@
+<div class="close-btn">
+    <button mat-icon-button [mat-dialog-close]=""><mat-icon>close</mat-icon></button>
+</div>
+<div class="welcome-text2">
+    Applying to {{this.data.position[0].name}}
+</div>
+<form [formGroup]="applicationFormGroup">
+    <mat-form-field  class="summary-input">
+        <h2>Give some examples of how your education prepares you for this position.</h2>
+        <textarea type="text" matInput formControlName="educationControl"></textarea>
+    </mat-form-field>
+    <mat-form-field  class="summary-input">
+        <h2>Give some examples of how your previous work experience prepares you for this position.</h2>
+        <textarea type="text" matInput formControlName="experienceControl"></textarea>
+    </mat-form-field>
+    <mat-form-field class="date">
+        <h2>Application Date</h2>
+        <input type="date" matInput formControlName="applicationDate">
+    </mat-form-field>
+
+    <div class="submit-div">
+        <button type="submit" [disabled]="!applicationFormGroup.valid" class="submit-btn" mat-raised-button [mat-dialog-close]="onSubmit('1')" color="primary">Save</button>
+        <button type="submit" [disabled]="!applicationFormGroup.valid" class="submit-btn" mat-raised-button [mat-dialog-close]="onSubmit('2')" style="background-color:green;">Submit</button>
+    </div>
+</form>

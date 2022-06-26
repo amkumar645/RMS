@@ -1,0 +1,117 @@
+<div class="close-btn">
+    <button mat-icon-button [mat-dialog-close]=""><mat-icon>close</mat-icon></button>
+</div>
+<mat-tab-group>
+    <mat-tab label="New Job"> 
+        <form [formGroup]="newJobFormGroup">
+            <div>
+                <mat-form-field class="jp-input">
+                    <mat-label>Job Position Name *</mat-label>
+                    <mat-select formControlName="positionControl">
+                        <mat-option *ngFor="let position of data.positions" [value]="position.name" >
+                            {{position.name}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field class="jn-input">
+                    <input matInput placeholder="Job Name *" formControlName="jobNameControl">
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field class="jc-input">
+                    <mat-label>Job Category Name *</mat-label>
+                    <mat-select formControlName="categoryControl">
+                        <mat-option *ngFor="let category of data.categories" [value]="category.name">
+                            {{category.name}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <mat-form-field class="id-input">
+                <input type="number" onkeypress="return event.charCode >= 48" matInput placeholder="Job ID *" formControlName="idControl">
+            </mat-form-field>
+            <mat-form-field class="code-input">
+                <input matInput placeholder="Job Code *" formControlName="codeControl">
+            </mat-form-field>
+            <div>
+                <mat-form-field class="description-input">
+                    <textarea matInput placeholder="Job Description" formControlName="descriptionControl"></textarea>
+                </mat-form-field>
+            </div>
+            <mat-form-field class="id-input">
+                <input type="number" matInput placeholder="Number of Vacancies" formControlName="vacanciesControl">
+            </mat-form-field>
+            <div>
+                <mat-form-field class="jc-input">
+                    <mat-label>Interview Process Name *</mat-label>
+                    <mat-select formControlName="processControl">
+                        <mat-option *ngFor="let process of data.processes" [value]="process.name">
+                            {{process.name}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field class="id-input">
+                    <input matInput placeholder="Created By" formControlName="creator">
+                </mat-form-field>
+                <mat-form-field class="code-input date">
+                    <input type="date" matInput placeholder="Creation Date" formControlName="creationDate">
+                </mat-form-field>
+            </div>
+            <div class="submit-div">
+                <button [disabled]="!newJobFormGroup.valid" class="submit-btn" mat-raised-button type="submit" (click)="onSubmit()" [mat-dialog-close]="newJobFormGroup.value">Submit</button>
+            </div>
+        </form>
+    </mat-tab>
+
+
+    <mat-tab label="New Job Position">
+     <form [formGroup]="newPositionFormGroup">
+        <div>
+            <mat-form-field class="jp-input">
+                <input matInput placeholder="Job Position Name *" formControlName="nameControl">
+            </mat-form-field>
+        </div>
+        <mat-form-field class="id-input">
+            <input type="number" onkeypress="return event.charCode >= 48" matInput placeholder="Job Position ID *" formControlName="idControl">
+        </mat-form-field>
+        <mat-form-field class="code-input">
+            <input matInput placeholder="Job Position Code *" formControlName="codeControl">
+        </mat-form-field>
+        <div>
+            <mat-form-field class="description-input">
+                <textarea matInput placeholder="Job Position Description" formControlName="descriptionControl"></textarea>
+            </mat-form-field>
+        </div>
+        <div class="submit-div">
+            <button [disabled]="!newPositionFormGroup.valid" class="submit-btn" mat-raised-button type="submit" [mat-dialog-close]="newPositionFormGroup.value">Submit</button>
+        </div>
+    </form> 
+</mat-tab>
+<mat-tab label="New Job Category"> 
+    <form [formGroup]="newCategoryFormGroup">
+        <div>
+            <mat-form-field class="jp-input">
+                <input matInput placeholder="Job Category Name *" formControlName="nameControl">
+            </mat-form-field>
+        </div>
+        <mat-form-field class="id-input">
+            <input type="number" onkeypress="return event.charCode >= 48" matInput placeholder="Job Category ID *" formControlName="idControl">
+        </mat-form-field>
+        <mat-form-field class="code-input">
+            <input matInput placeholder="Job Category Code *" formControlName="codeControl">
+        </mat-form-field>
+        <div>
+            <mat-form-field class="description-input">
+                <textarea matInput placeholder="Job Category Description" formControlName="descriptionControl"></textarea>
+            </mat-form-field>
+        </div>
+        <div class="submit-div">
+            <button [disabled]="!newCategoryFormGroup.valid" class="submit-btn" mat-raised-button type="submit" [mat-dialog-close]="newCategoryFormGroup.value">Submit</button>
+        </div>
+    </form>
+</mat-tab>
+</mat-tab-group>

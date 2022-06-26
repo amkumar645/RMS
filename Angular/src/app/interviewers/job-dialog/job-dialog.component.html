@@ -1,0 +1,61 @@
+<h1 class="title">Job Details</h1>
+<div class="overall">
+    <span class="field">
+        Job Position: 
+    </span>
+    <span class="response">
+        {{position.name}}
+    </span>
+</div>
+
+
+<div class="overall">
+    <span class="field">
+        Job:
+    </span>
+    <span class="response">
+        {{job.name}}
+    </span>
+</div>
+
+<div class="overall">
+    <span class="field">
+    Job Category:
+    </span>
+    <span class="response">
+    {{category.name}}
+    </span>
+</div>
+
+<div class="overall">
+    <span class="field">
+    Job Code:
+    </span>
+    <span class="response">
+    {{job.code}}
+    </span>
+</div>
+
+<div class="overall">
+    <span class="field">
+        Job Description:
+    </span>
+    <div class="response">
+        {{position.description}}
+    </div>
+</div>
+
+
+<div class="overall">
+    <span class="field">
+    Number of Vacancies
+    </span>
+    <span class="response">
+    {{job.noOfVacancies}}
+    </span>
+</div>
+
+<div class="btn-div">
+    <button mat-button color="primary" class="btn" [mat-dialog-close]="">OK!</button>
+</div>
+

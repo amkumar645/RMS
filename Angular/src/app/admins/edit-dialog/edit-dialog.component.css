@@ -1,0 +1,34 @@
+.close-btn {
+    text-align: right;
+}
+.date {
+    color: grey;
+}
+.description-input {
+    width: 80%;
+}
+
+.id-input {
+    margin-right: 25%;
+}
+
+.jc-input {
+   
+    width: 80%;
+}
+.jp-input {
+    margin-top: 3%;
+    width: 80%;
+}
+.jn-input {
+    width: 80%;
+}
+.submit-div {
+    margin-top: 7%;
+    text-align: right;
+}
+
+.submit-btn {
+    background-color: green;
+    color: white
+}

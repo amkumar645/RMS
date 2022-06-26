@@ -1,0 +1,92 @@
+<div class="close-btn">
+    <button mat-icon-button [mat-dialog-close]=""><mat-icon>close</mat-icon></button>
+</div>
+<mat-tab-group>
+    <mat-tab label="New Interview Process"> 
+        <form [formGroup]="newProcessFormGroup">
+            <div>
+                <mat-form-field class="jn-input">
+                    <input matInput placeholder="Process Name *" formControlName="nameControl">
+                </mat-form-field>
+            </div>
+            <mat-form-field class="id-input">
+                <input type="number" onkeypress="return event.charCode >= 48" matInput placeholder="Process ID *" formControlName="idControl">
+            </mat-form-field>
+            <mat-form-field class="code-input">
+                <input matInput placeholder="Process Code *" formControlName="codeControl">
+            </mat-form-field>
+            <div>
+                <mat-form-field class="description-input">
+                    <textarea matInput placeholder="Process Description" formControlName="descriptionControl"></textarea>
+                </mat-form-field>
+            </div>
+
+            <div>
+                <mat-form-field>
+                    <mat-label>Step 1 *</mat-label>
+                    <mat-select formControlName="step1Control">
+                        <mat-option *ngFor="let step of data.steps" [value]="step.name">
+                            {{step.name}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
+            <div *ngIf="step2">
+                <mat-form-field>
+                    <mat-label>Step 2</mat-label>
+                    <mat-select formControlName="step2Control">
+                        <mat-option value="none"></mat-option>
+                        <mat-option *ngFor="let step of data.steps" [value]="step.name">
+                            {{step.name}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <button mat-button class="delete-step-btn" (click)="onDeleteStep(2); $event.preventDefault()" color="warn">Delete step</button>
+            </div>
+
+            <div *ngIf="step3">
+                <mat-form-field>
+                    <mat-label>Step 3</mat-label>
+                    <mat-select formControlName="step3Control">
+                        <mat-option value="none"></mat-option>
+                        <mat-option *ngFor="let step of data.steps" [value]="step.name">
+                            {{step.name}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <button type="button" mat-button class="delete-step-btn" (click)="onDeleteStep(3); $event.preventDefault()" color="warn">Delete step</button>
+            </div>
+            <button *ngIf="checkAdd()" type="button" mat-button class="add-step-btn" color="primary" (click)="onAddStep()">Add step</button>
+            <div class="submit-div">
+                <button [disabled]="!newProcessFormGroup.valid" class="submit-btn" mat-raised-button type="submit" (click)="onSubmit()" [mat-dialog-close]="newProcessFormGroup.value">Submit</button>
+            </div>
+        </form>
+    </mat-tab>
+
+
+    <mat-tab label="New Interview Step">
+        <form [formGroup]="newStepFormGroup">
+            <div>
+                <mat-form-field class="jn-input">
+                    <input matInput placeholder="Step Name *" formControlName="nameControl">
+                </mat-form-field>
+            </div>
+            <mat-form-field class="id-input">
+                <input type="number" onkeypress="return event.charCode >= 48" matInput placeholder="Step ID *" formControlName="idControl">
+            </mat-form-field>
+            <mat-form-field class="code-input">
+                <input matInput placeholder="Step Code *" formControlName="codeControl">
+            </mat-form-field>
+            <div>
+                <mat-form-field class="description-input">
+                    <textarea matInput placeholder="Step Description" formControlName="descriptionControl"></textarea>
+                </mat-form-field>
+            </div>
+            <div class="submit-div">
+                <button [disabled]="!newStepFormGroup.valid" class="submit-btn" mat-raised-button type="submit" [mat-dialog-close]="newStepFormGroup.value">Submit</button>
+            </div>
+        </form> 
+    </mat-tab>
+</mat-tab-group>
+

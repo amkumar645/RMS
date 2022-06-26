@@ -1,0 +1,53 @@
+<div class="welcome-banner">
+    <h1 class="welcome-text">Applicant Console</h1>
+</div>
+<span>
+    <h1 class="under-title">Current Job Listings</h1>
+</span>
+  
+  <form>
+    <mat-form-field class="form-field" appearance="fill">
+      <mat-label>Search</mat-label>
+      <input matInput type="text" [(ngModel)]="value" [formControl]="searchControl">
+      <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+    <button type="submit" class="search-btn" (click)="onSubmit()"><mat-icon>search</mat-icon></button>
+    <div>
+      <mat-radio-group [(ngModel)]="filterVal">
+        <mat-radio-button class="radio" value="1" (click)="updateFilter('1')">Filter by Position</mat-radio-button>
+        <mat-radio-button class="radio" value="2" (click)="updateFilter('2')">Filter by Job</mat-radio-button>
+      </mat-radio-group>
+    </div>
+  </form>
+  
+  <mat-accordion *ngIf="this.jobsShowing" class="example-headers-align" multi>
+    <mat-expansion-panel class= "panel" *ngFor="let job of (jobs | jobFilter:jobPositions:filterVal:searchVal)" >
+      <mat-expansion-panel-header>
+        <mat-panel-title class="panel-title" *ngIf="job.jobPositionId">
+          {{findJobPosition(job.jobPositionId)}}
+        </mat-panel-title>
+        <mat-panel-description class="panel-subtitle">
+          {{ job.name }}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <h3 *ngIf="job.jobCategoryId">Category: {{findJobCategory(job.jobCategoryId)}}</h3>
+      <h3>{{job.description}}</h3>
+      <div class="delete-button">
+        <!-- <button mat-button color="primary" (click)="openApplyDialog(job.id)">Apply Now</button> -->
+        <button  *ngIf="!applied(job.id)" mat-button color="primary" (click)="openApplyDialog(job.id)">Apply Now</button>
+        <div class="applied" *ngIf="applied(job.id) && !rejected(job.id)">Applied On {{getApplicationDate(job.id)}} ✓</div>
+        <div class="rejected" *ngIf="applied(job.id) && rejected(job.id)">APPLICATION REJECTED ❌</div>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+  
+  <div class="action-buttons" *ngIf="this.jobsShowing">
+    <button mat-button (click)="accordion.openAll()">Expand All</button>
+    <button mat-button (click)="accordion.closeAll()">Collapse All</button>
+  </div>
+  
+  <p class="error-text" *ngIf="!this.jobsShowing">
+    No jobs found
+  </p>

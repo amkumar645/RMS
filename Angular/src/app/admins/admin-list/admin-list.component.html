@@ -1,0 +1,61 @@
+<div class="welcome-banner">
+  <h1 class="welcome-text">Admin Console</h1>
+</div>
+<span>
+  <h1 class="under-title">Current Job Listings</h1>
+  <span class="add-button-div">
+    <button mat-raised-button color="primary" class="add-button" (click)="openAddDialog()">Add New</button>
+  </span>
+</span>
+
+<form>
+  <mat-form-field class="form-field" appearance="fill">
+    <mat-label>Search</mat-label>
+    <input matInput type="text" [(ngModel)]="value" [formControl]="searchControl">
+    <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+  <button type="submit" class="search-btn" (click)="onSubmit()"><mat-icon>search</mat-icon></button>
+  <div>
+    <mat-radio-group [(ngModel)]="filterVal">
+      <mat-radio-button class="radio" value="1" (click)="updateFilter('1')">Filter by Position</mat-radio-button>
+      <mat-radio-button class="radio" value="2" (click)="updateFilter('2')">Filter by Job</mat-radio-button>
+    </mat-radio-group>
+  </div>
+</form>
+
+<mat-accordion *ngIf="this.jobsShowing" class="example-headers-align" multi>
+  <mat-expansion-panel class= "panel" *ngFor="let job of (jobs | jobFilter:jobPositions:filterVal:searchVal)" >
+    <mat-expansion-panel-header>
+      <mat-panel-title class="panel-title" *ngIf="job.jobPositionId">
+        {{findJobPosition(job.jobPositionId)}}
+      </mat-panel-title>
+      <mat-panel-description class="panel-subtitle">
+        {{ job.name }}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <h3>Id: {{job.id}}</h3>
+    <h3 *ngIf="job.jobCategoryId">Category: {{findJobCategory(job.jobCategoryId)}}</h3>
+    <h3>Description: {{job.description}}</h3>
+    <h3>Code: {{job.code}}</h3>
+    <h3>Number of Vacancies: {{job.noOfVacancies}} </h3>
+    <h3 *ngIf="job.processId">Process: {{findProcess(job.processId)}}</h3>
+    <h3 *ngIf="job.createdBy"> Created By: {{job.createdBy}}</h3>
+    <h3 *ngIf="job.createdAt">Created On: {{job.createdAt | date}}</h3>
+    <div class="delete-button">
+      <button mat-button color="primary" (click)="openEditDialog(job.id)">Edit</button>
+      <button mat-button color="warn" (click)="openRepDialog(job.id)">Delete</button>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>
+
+<div class="action-buttons" *ngIf="this.jobsShowing">
+  <button mat-button (click)="accordion.openAll()">Expand All</button>
+  <button mat-button (click)="accordion.closeAll()">Collapse All</button>
+</div>
+
+<p class="error-text" *ngIf="!this.jobsShowing">
+  No jobs found
+</p>

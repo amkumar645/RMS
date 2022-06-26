@@ -1,0 +1,33 @@
+<div class="welcome-banner">
+    <h1 class="welcome-text">Applicant Console</h1>
+</div>
+<div class="welcome-text2">
+    Update Your Profile
+</div>
+<form [formGroup]="applicantFormGroup" (ngSubmit)="onSubmit()">
+    <div>
+        <mat-form-field class="name-input">
+            <input matInput placeholder="First Name" formControlName="firstNameControl">
+        </mat-form-field>
+        <mat-form-field class="name-input">
+            <input matInput placeholder="Last Name" formControlName="lastNameControl">
+        </mat-form-field>
+    </div>
+    <mat-form-field class="email-input">
+        <input type="email" matInput placeholder="Email" formControlName="emailControl">
+    </mat-form-field>
+    <mat-form-field class="phone-input">
+        <input maxlength="10" matInput placeholder="Phone Number" formControlName="phoneControl">
+    </mat-form-field>
+    <div>
+        <mat-form-field  class="summary-input">
+            <textarea type="text" matInput placeholder="Summary of Resume" formControlName="summaryControl"></textarea>
+        </mat-form-field>
+    </div>
+    <mat-form-field class="doc-input">
+        <input type="number" matInput placeholder="Document ID" formControlName="documentIds">
+    </mat-form-field>
+    <div class="submit-div">
+        <button type="submit" [disabled]="!applicantFormGroup.valid" class="submit-btn" mat-raised-button>Update</button>
+    </div>
+</form>

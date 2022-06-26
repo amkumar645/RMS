@@ -1,0 +1,39 @@
+h2 {
+    font-weight: normal;
+    font-size: 1rem;
+}
+
+.close-btn {
+    text-align: right;
+}
+
+
+.date {
+    margin-left: 3%; 
+}
+
+.submit-div {
+    margin-top: 7%;
+    text-align: center;
+}
+
+.submit-btn {
+    color: white;
+    margin-bottom: 10%;
+    margin-right: 3%;
+}
+
+.summary-input {
+    margin-left: 3%;
+    margin-top: 3%;
+    width: 80%;
+}
+
+
+.welcome-text2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 3%;
+    text-align: center;;
+    margin-bottom: 3%;
+}

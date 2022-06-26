@@ -1,0 +1,37 @@
+<mat-card class="login-card" *ngIf="!loggedIn">
+    <mat-card-header>
+        <div class="login-title">
+            <mat-card-title>Login</mat-card-title>
+        </div>
+    </mat-card-header>
+    <mat-card-content>
+      <form class="login-form" [formGroup]="loginFormGroup">
+        <table class="full-width" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field class="full-width">
+              <input matInput placeholder="Email" name="email" formControlName="emailControl" required>
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+          <td><mat-form-field class="full-width">
+            <input matInput placeholder="Password" type="password" name="password" formControlName="passwordControl" required>
+          </mat-form-field></td>
+        </tr></table>
+      </form>
+    </mat-card-content>
+    <mat-card-actions class="submit">
+      <button mat-raised-button (click)="login()" color="primary">Login</button>
+    </mat-card-actions>
+  </mat-card>
+
+  <div *ngIf="loggedIn">
+    <h1>You are logged in as {{email}}</h1>
+    <h1 *ngIf="adminAccess">You currently have admin access</h1>
+    <h1 *ngIf="!adminAccess">You currently have user access</h1>
+    <h2>Not you?</h2>
+    <mat-card-actions class="submit">
+        <button mat-raised-button (click)="logout()" color="primary">Logout</button>
+    </mat-card-actions>
+  </div>

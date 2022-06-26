@@ -1,0 +1,29 @@
+<mat-drawer-container class="container" autosize>
+    <mat-drawer #drawer class="sidenav" position="end">
+        <button color="primary" mat-button routerLink="/applicants">Applicants</button>
+        <button color="primary" mat-button routerLink="/admins">Admins</button>
+        <button color="primary" mat-button routerLink="/interviewers">Interviewers</button>
+        <button color="primary" mat-button routerLink="/auth">Login</button>
+    </mat-drawer>
+    <div class="sidenav-content">
+        <mat-toolbar >
+            <mat-toolbar-row>
+                <a class="img-link" routerLink="">
+                    <img class="navbar-img" src="https://www.riaadvisory.com/assets/frontend/img/RIA-logo-2020.png">
+                </a> 
+                <h1 class="sidebar-title">Recruitment Console</h1>
+                <span class="spacer"></span>
+                <button mat-icon-button class="toggle-btn" (click)="drawer.toggle()">
+                    <mat-icon>menu</mat-icon>
+                </button>
+                <a>
+                    <mat-icon class="login-button" routerLink="/auth" routerLinkActive>person_pin</mat-icon>
+                </a>
+            </mat-toolbar-row>
+        </mat-toolbar>
+       
+        
+        <router-outlet></router-outlet>
+       
+    </div>
+</mat-drawer-container>

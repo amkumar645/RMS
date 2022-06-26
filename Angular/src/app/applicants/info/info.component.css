@@ -1,0 +1,64 @@
+.doc-input {
+    margin-top: 3%;
+    margin-left: 3%;
+    width: 15%;
+}
+
+.email-input {
+    margin-top: 3%;
+    margin-left: 3%;
+    margin-right: 3%;
+    width: 44%;
+}
+
+.name-input {
+    margin-top: 3%;
+    margin-left: 3%;
+    margin-right: 3%;
+    width: 44%;
+}
+
+.phone-input {
+    margin-top: 3%;
+    margin-left: 3%;
+    margin-right: 3%;
+    width: 44%;
+}
+
+.submit-div {
+    margin-top: 7%;
+    text-align: center;
+}
+
+.submit-btn {
+    background-color: green;
+    color: white;
+    margin-bottom: 10%;
+}
+
+.summary-input {
+    margin-left: 3%;
+    margin-top: 3%;
+    width: 80%;
+}
+
+.welcome-banner {
+    background-color: #1a2c50;
+    color: white;
+    text-align: center;
+    font-size: 1rem;
+    padding-bottom: 7.5%;
+    font-weight: normal
+}
+
+.welcome-text {
+    font-size: 2.5rem;
+    padding-top: 7.5%;
+    font-weight: bold;
+}
+.welcome-text2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding-top: 5%;
+    margin-left: 3%;
+}

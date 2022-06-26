@@ -1,0 +1,83 @@
+.add-button {
+    background-color: green;
+    margin-left: 60%;
+    margin-right: 3%;
+}
+
+.applicant {
+    margin-top: 3%;
+}
+
+.applicant .title {
+    font-size: 1.3rem;
+}
+
+
+.delete-button {
+    text-align: center;
+}
+
+.interview {
+    margin-left: 3%;
+    margin-right: 3%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    border: 1px solid black;
+}
+
+.link {
+    cursor: pointer;
+    text-align: right;
+    color: blue;
+    text-decoration: underline;
+    margin-right: 3%;
+}
+
+.reject-btn {
+    margin-right: 3%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+
+}
+
+.section {
+    margin-left: 3%;
+    margin-bottom: 3%;
+}
+
+.title {
+    /* font-weight: bold; */
+    font-size: 1rem;
+}
+
+.under-title {
+    margin-top: 5%;
+    margin-left: 3%;
+    font-weight: bold;
+    display:inline-block;
+}
+
+.update-btn {
+    margin-right: 3%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+
+.welcome-banner {
+    background-color: #1a2c50;
+    color: white;
+    text-align: center;
+    font-size: 1rem;
+    padding-bottom: 7.5%;
+    font-weight: normal
+}
+
+.welcome-text {
+    padding-top: 7.5%;
+    font-weight: bold;
+    font-size: 2.5rem;
+}
+.welcome-text2 {
+    font-weight: normal;
+    padding-top: 1%;
+}

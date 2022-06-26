@@ -1,0 +1,37 @@
+<div class="welcome-banner">
+  <h1 class="welcome-text">Interviewer Console</h1>
+</div>
+<span>
+  <h1 class="under-title">Pending Interviews</h1>
+  <span class="add-button-div">
+    <button mat-raised-button color="primary" class="add-button" (click)="openAddDialog()">Add Process/Step</button>
+  </span>
+</span>
+<div *ngFor="let interview of interviews" class="interview">
+  <div class="applicant section">
+    <span class="title"><strong>{{(getApplicantName(interview))}}</strong></span>
+    <div class="link">
+      <a (click)="openApplicationDialog(interview)">View Application</a>
+    </div>
+    
+  </div>
+  <div class="job section">
+    <span class="title"><strong>Job:</strong> {{(getJobPosition(interview)).name}}</span>
+    <div class="link">
+      <a (click)="openJobDialog(interview)">View Job Details</a>
+    </div>
+  </div>
+  <div class="process section">
+    <span class="title"><strong>Process:</strong> {{(getProcess(interview)).name}}</span>
+    <div *ngFor="let step of getSteps(interview); let i=index">
+      <span class="title"><strong>Step {{i+1}}:</strong> {{step.name}}</span>
+    </div>
+    <div class="link">
+      <a (click)="openProcessDialog(interview)">View Process Details</a>
+    </div>
+  </div>
+  <div class="delete-button">
+    <button class="update-btn" mat-raised-button color="primary" (click)="openFeedbackDialog(interview.id)">Update Feedback</button>
+    <button class="reject-btn" mat-raised-button color="warn" (click)="deleteInterview(interview.id)">Reject Candidate</button>
+  </div>
+</div>

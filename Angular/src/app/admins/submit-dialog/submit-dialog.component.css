@@ -1,0 +1,24 @@
+.btn {
+    margin-top: 3%;
+    text-align: center;
+}
+.error {    
+    color: #ec2828;
+}
+
+.error-img {
+    width: 15%;
+    margin-left: 3%;
+}
+
+.message {
+    text-align: center;
+}
+
+.success {
+    color: green;
+}
+
+.title {
+    text-align: center;
+}

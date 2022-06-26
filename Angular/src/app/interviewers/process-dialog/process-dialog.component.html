@@ -1,0 +1,54 @@
+<h1 class="title">Process Details</h1>
+<div class="overall">
+    <span class="field">
+        Process Name: 
+    </span>
+    <span class="response">
+        {{process.name}}
+    </span>
+</div>
+
+
+<div class="overall">
+    <span class="field">
+        Process ID:
+    </span>
+    <span class="response">
+        {{process.id}}
+    </span>
+</div>
+
+<div class="overall">
+    <span class="field">
+        Process Code:
+    </span>
+    <span class="response">
+    {{process.code}}
+    </span>
+</div>
+
+
+
+<div class="overall">
+    <span class="field">
+        Process Description:
+    </span>
+    <div class="response">
+        {{process.description}}
+    </div>
+</div>
+
+<div *ngFor="let step of steps; let i = index" class="overall">
+    <span class="field">
+    Step {{i+1}}: 
+    </span>
+    <span class="response">
+    {{step.name}} - {{step.description}}
+    </span>
+</div>
+
+
+<div class="btn-div">
+    <button mat-button color="primary" class="btn" [mat-dialog-close]="">OK!</button>
+</div>
+

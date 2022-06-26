@@ -1,0 +1,62 @@
+<h1 class="title">Application Details</h1>
+<div class="overall">
+    <span class="field">
+        Name: 
+    </span>
+    <span class="response">
+        {{applicant.firstName + " " + applicant.lastName}}
+    </span>
+</div>
+
+
+<div class="overall">
+    <span class="field">
+        Email: 
+    </span>
+    <span class="response">
+        {{applicant.email}}
+    </span>
+</div>
+
+<div class="overall">
+    <span class="field">
+    Phone Number:  
+    </span>
+    <span class="response">
+    {{applicant.phone}}
+    </span>
+</div>
+
+<div class="overall">
+    <span class="field">
+        Applicant Summary: 
+    </span>
+    <div class="response">
+        {{applicant.summary}}
+    </div>
+</div>
+
+
+<div class="overall">
+    <span class="field">
+        Applicant Education Response:
+    </span>
+    <div class="response">
+        {{application.education}}
+    </div>
+</div>
+
+<div class="overall">
+    <span class="field">
+        Applicant Experience Response: 
+    </span>
+    <div class="response">
+        {{application.experience}}
+    </div>
+</div>
+<div class="btn-div">
+    <button mat-button color="primary" class="btn" [mat-dialog-close]="">OK!</button>
+</div>
+
+
+
